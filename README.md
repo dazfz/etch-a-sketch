@@ -1,2 +1,2 @@
 # etch-a-sketch
-etch a sketch HTTP/CSS/JS
+etch a sketch HTML/CSS/JS
