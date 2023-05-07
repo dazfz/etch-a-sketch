@@ -27,10 +27,10 @@ function createGrid(size) {
     let darkness = 0;
 
     // si se mantiene el mouse apretado, y se pasa por encima de un div, se colorea
-    div.addEventListener("mousedown", () => (isMouseDown = true));
-    div.addEventListener("mouseup", () => (isMouseDown = false));
+    div.addEventListener("mousedown", () => (pressed = true));
+    div.addEventListener("mouseup", () => (pressed = false));
     div.addEventListener("mouseover", () => {
-      if (isMouseDown) {
+      if (pressed) {
         let light = 1 + darkness * 0.1;
         let color = `rgb(${baseColor[0] * light}, ${baseColor[1] * light}, ${
           baseColor[2] * light
