@@ -1,15 +1,14 @@
-const btn = document.querySelector("button");
-btn.addEventListener("click", () => {
-  let size = prompt(
-    "Enter grid size less than 101 (e.g. 16 for a 16x16 grid):"
-  );
-  size = parseInt(size);
-  if (size < 101 && Number.isInteger(size) && size > 0) {
-    main.style.setProperty("--size", size); // cambiar variable size del css
-    createGrid(size);
-  } else alert("Invalid input. Please enter a positive integer less than 101.");
+const slider = document.getElementById("slider");
+const sliderValue = document.getElementById("slider-value");
+
+slider.addEventListener("input", () => {
+  const size = parseInt(slider.value);
+  main.style.setProperty("--size", size);
+  createGrid(size);
+  sliderValue.textContent = size; // Actualiza el número mostrado
 });
 
+let pressed;
 const main = document.querySelector("main"); // seleccionar main
 function createGrid(size) {
   main.innerHTML = ""; // resetea el contenido de main
@@ -27,6 +26,7 @@ function createGrid(size) {
     let darkness = 0;
 
     // si se mantiene el mouse apretado, y se pasa por encima de un div, se colorea
+   
     div.addEventListener("mousedown", () => (pressed = true));
     div.addEventListener("mouseup", () => (pressed = false));
     div.addEventListener("mouseover", () => {
